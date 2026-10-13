@@ -7,19 +7,19 @@ const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.d
 <Base titulo="Equipo">
   <header class="post-header">
     <h1 class="post-title">equipo</h1>
-    <p class="post-description">Investigadores de los grupos NETSIS y GHEODE de la Universidad de Alcalá.</p>
+    <p class="post-description">Investigadores de los grupos NetIS y GHEODE de la Universidad de Alcalá.</p>
   </header>
 
   <p>
-    APT-GRAN reúne a investigadores del grupo <strong>NETSIS</strong>, a través de su subgrupo GNOSIS
+    APT-GRAN reúne a investigadores del grupo <strong><a href="https://netis.web.uah.es/" rel="noopener">NetIS</a></strong>, a través de su subgrupo GNOSIS
     (Geometry, Networks and Optimization for Services and Intelligent Systems), y del grupo
-    <strong>GHEODE</strong>, ambos de la Universidad de Alcalá, con experiencia en optimización distribuida
+    <strong><a href="https://gheode.web.uah.es/" rel="noopener">GHEODE</a></strong>, ambos de la Universidad de Alcalá, con experiencia en optimización distribuida
     sobre grafos, ciberseguridad y aprendizaje automático.
   </p>
 
   <div class="logos" style="margin:1rem 0 2rem">
-    <img class="alto" src={`${base}/img/netis.svg`} alt="NetIS, Grupo de Investigación Redes y Sistemas Inteligentes, UAH" />
-    <img src={`${base}/img/gheode.png`} alt="GHEODE, Universidad de Alcalá" />
+    <a href="https://netis.web.uah.es/" rel="noopener"><img class="alto" src={`${base}/img/netis.svg`} alt="NetIS, Grupo de Investigación Redes y Sistemas Inteligentes, UAH" /></a>
+    <a href="https://gheode.web.uah.es/" rel="noopener"><img src={`${base}/img/gheode.png`} alt="GHEODE, Universidad de Alcalá" /></a>
   </div>
 
   <ul class="personas">
