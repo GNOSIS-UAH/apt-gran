@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import Noticias from '../../components/Noticias.astro';
+import Logos from '../../components/Logos.astro';
+import Social from '../../components/Social.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base titulo="Home" lang="en">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">APT</span>-GRAN</h1>
+    <p class="post-description">Intelligent Attribution of Advanced Persistent Threats in Cybersecurity through Neural Networks and Graph Modelling.</p>
+  </header>
+
+  <div class="clearfix">
+    <div class="profile">
+      <div class="address">
+        <p>University of Alcalá</p>
+        <p>Own Research Programme</p>
+        <p>2025 call · 12 months</p>
+        <p>PI: Enrique de la Hoz</p>
+        <p>Co-PI: Laura M. Cornejo</p>
+      </div>
+    </div>
+    <p>
+      APT-GRAN is a research project at the <a href="https://www.uah.es/en/">University of Alcalá</a> on the
+      <strong>attribution</strong> of cyberattacks: determining which advanced persistent threat group is behind
+      an intrusion from its observed activity.
+    </p>
+    <p>
+      The starting point is a simple idea. An intrusion is naturally described as a network of related entities
+      (tools, infrastructure, techniques, victims), and when several intrusions are analysed together some of
+      those entities recur and connect them. Expert analysts spot these overlaps and weigh them by judgement. We
+      investigate how to generalise that work with
+      <a href={`${base}/en/proyecto`}>graph neural networks with attention mechanisms</a>, able to learn which
+      relationships matter and how much.
+    </p>
+    <p>
+      On this site we publish the project's <a href={`${base}/en/resultados`}>results</a> as they consolidate,
+      its <a href={`${base}/en/publicaciones`}>publications</a> and the
+      <a href={`${base}/en/recursos`}>datasets and software</a> we release so that experiments can be reproduced.
+    </p>
+  </div>
+
+  <h2>news</h2>
+  <Noticias lang="en" />
+  <Logos lang="en" />
+  <Social />
+</Base>

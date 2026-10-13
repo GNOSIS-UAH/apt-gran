@@ -14,8 +14,8 @@ npm run build      # genera el sitio en dist/
 
 | Qué | Carpeta | Plantilla |
 |---|---|---|
-| Noticia | `src/content/noticias/` | ver `2026-10-semana-ciencia.md` (campos opcionales `url` y `etiqueta` para un enlace) |
-| Resultado | `src/content/resultados/` | `_ejemplo.md.txt` |
+| Noticia | `src/content/noticias/` y `noticias/en/` | ver `2026-10-semana-ciencia.md` (campos opcionales `url` y `etiqueta` para un enlace) |
+| Resultado | `src/content/resultados/` y `resultados/en/` | `_ejemplo.md.txt` |
 | Publicación | `src/content/publicaciones/` | `_ejemplo.md.txt` |
 | Recurso (dataset, software) | `src/content/recursos/` | `_ejemplo.md.txt` |
 | Persona | `src/content/equipo/` | cualquier fichero existente |
@@ -24,9 +24,16 @@ Copia la plantilla, renómbrala a `<slug>.md`, rellena la cabecera y ejecuta `np
 
 Los ficheros `_ejemplo.md.txt` no se publican.
 
+## Idiomas
+
+El español se sirve en la raíz y el inglés en `/en/`. Cada página tiene su equivalente en `src/pages/en/` y la navegación incluye el cambio de idioma. Los textos de interfaz (menú, rótulos, avisos) están en `src/i18n.ts`.
+
+- **Noticias y resultados**: un fichero por idioma. Los ingleses van en la subcarpeta `en/` de la colección, con el mismo nombre de fichero que el español.
+- **Publicaciones, recursos y equipo**: un solo fichero para ambos idiomas, con campos opcionales `titulo_en`, `venue_en`, `resumen_en` y `rol_en`. Si faltan, se muestra el texto en español.
+
 ## Páginas
 
-- `src/pages/index.astro`: portada con accesos y últimas noticias.
+- `src/pages/index.astro`: portada con presentación y últimas noticias. Los listados viven en `src/components/` y se reutilizan en ambos idiomas.
 - `src/pages/proyecto.astro`: motivación, hipótesis, objetivos, impacto y financiación. Texto fijo.
 - `src/pages/resultados.astro`: lista cronológica de resultados con etiqueta temática.
 - `src/pages/publicaciones.astro`: agrupadas por tipo.

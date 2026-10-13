@@ -1,39 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.data.orden);
+import ListaEquipo from '../components/ListaEquipo.astro';
+import Logos from '../components/Logos.astro';
+import Social from '../components/Social.astro';
 ---
-<Base titulo="Equipo">
+<Base titulo="Equipo" lang="es">
   <header class="post-header">
     <h1 class="post-title">equipo</h1>
     <p class="post-description">Investigadores de los grupos NetIS y GHEODE de la Universidad de Alcalá.</p>
   </header>
 
   <p>
-    APT-GRAN reúne a investigadores del grupo <strong><a href="https://netis.web.uah.es/" rel="noopener">NetIS</a></strong>, a través de su subgrupo GNOSIS
-    (Geometry, Networks and Optimization for Services and Intelligent Systems), y del grupo
-    <strong><a href="https://gheode.web.uah.es/" rel="noopener">GHEODE</a></strong>, ambos de la Universidad de Alcalá, con experiencia en optimización distribuida
-    sobre grafos, ciberseguridad y aprendizaje automático.
+    APT-GRAN reúne a investigadores del grupo <strong><a href="https://netis.web.uah.es/" rel="noopener">NetIS</a></strong>,
+    a través de su subgrupo GNOSIS (Geometry, Networks and Optimization for Services and Intelligent Systems), y del grupo
+    <strong><a href="https://gheode.web.uah.es/" rel="noopener">GHEODE</a></strong>, ambos de la Universidad de Alcalá,
+    con experiencia en optimización distribuida sobre grafos, ciberseguridad y aprendizaje automático.
   </p>
 
-  <div class="logos" style="margin:1rem 0 2rem">
-    <a href="https://netis.web.uah.es/" rel="noopener"><img class="alto" src={`${base}/img/netis.svg`} alt="NetIS, Grupo de Investigación Redes y Sistemas Inteligentes, UAH" /></a>
-    <a href="https://gheode.web.uah.es/" rel="noopener"><img src={`${base}/img/gheode.png`} alt="GHEODE, Universidad de Alcalá" /></a>
-  </div>
-
-  <ul class="personas">
-    {equipo.map((p) => (
-      <li class="persona">
-        <span class="title">{p.data.nombre}</span>
-        <span class="rol">{p.data.rol} · {p.data.grupo}</span>
-        <span class="links">
-          {p.data.orcid && <a class="btn" href={`https://orcid.org/${p.data.orcid}`} rel="noopener">ORCID</a>}
-          {p.data.web && <a class="btn" href={p.data.web} rel="noopener">Web</a>}
-        </span>
-      </li>
-    ))}
-  </ul>
+  <Logos lang="es" nota={false} estilo="margin:1rem 0 2rem" />
+  <ListaEquipo lang="es" />
 
   <h2>colaboración</h2>
   <p>
@@ -42,9 +27,5 @@ const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.d
     University of Delft, el MIT y el Politecnico di Milano.
   </p>
 
-  <div class="social">
-    <a href="mailto:enrique.delahoz@uah.es">enrique.delahoz@uah.es</a>
-    <a href="https://edelahozuah.github.io/" rel="noopener">Web del IP</a>
-    <p class="contact-note">Escuela Politécnica Superior, Universidad de Alcalá. Ctra. Madrid-Barcelona, km 33,600. 28805 Alcalá de Henares, Madrid.</p>
-  </div>
+  <Social nota="Escuela Politécnica Superior, Universidad de Alcalá. Ctra. Madrid-Barcelona, km 33,600. 28805 Alcalá de Henares, Madrid." />
 </Base>

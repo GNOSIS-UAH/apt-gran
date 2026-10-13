@@ -1,36 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
-const tipos: Record<string, string> = { dataset: 'datasets', software: 'software', documento: 'documentos' };
-const todos = await getCollection('recursos');
-const grupos = Object.keys(tipos).map((t) => ({ t, items: todos.filter((r) => r.data.tipo === t) })).filter((g) => g.items.length > 0);
+import ListaRecursos from '../components/ListaRecursos.astro';
 ---
-<Base titulo="Recursos">
+<Base titulo="Recursos" lang="es">
   <header class="post-header">
     <h1 class="post-title">recursos</h1>
     <p class="post-description">Datasets, software y documentos que el proyecto publica en abierto para favorecer la reproducibilidad.</p>
   </header>
-  {grupos.length === 0 ? (
-    <p class="nota">Los recursos se irán publicando en GitHub y Zenodo a lo largo del proyecto.</p>
-  ) : grupos.map((g) => (
-    <>
-      <h2 class="category">{tipos[g.t]}</h2>
-      <div class="projects">
-        {g.items.map((r) => (
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">{r.data.titulo}</h3>
-              <p class="card-text">{r.data.resumen}</p>
-              {r.data.cita && <p class="card-text nota" style="margin-top:.5rem">Cómo citar: {r.data.cita}</p>}
-            </div>
-            <div class="card-pie">
-              {r.data.github && <a href={r.data.github} rel="noopener">GitHub</a>}
-              {r.data.zenodo && <a href={r.data.zenodo} rel="noopener">Zenodo</a>}
-              {r.data.licencia && <span>{r.data.licencia}</span>}
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  ))}
+  <ListaRecursos lang="es" />
 </Base>

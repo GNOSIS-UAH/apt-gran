@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base titulo="The project" lang="en">
+  <header class="post-header">
+    <h1 class="post-title">the project</h1>
+    <p class="post-description">Motivation, hypothesis and objectives of APT-GRAN.</p>
+  </header>
+
+  <div class="linea">
+    <h2>why attribution</h2>
+    <p>
+      The number and impact of security incidents affecting companies and organisations has grown alarmingly.
+      Cyber Threat Intelligence studies the activity of the groups responsible in order to organise and classify
+      their behaviour, so that this knowledge serves to prevent and respond better. One of its hardest problems
+      is <strong>attribution</strong>: determining who is behind a set of malicious actions. It is critical,
+      because it makes legal action against those responsible possible and, above all, allows present and
+      future incidents to be anticipated and handled more effectively.
+    </p>
+    <p>
+      Current approaches are severely limited. Most work on malware samples, an approach that the rise of
+      malware-as-a-service and the use of several families within a single attack have rendered insufficient.
+      Public threat reports, for their part, are of uneven quality, with few indicators and little context.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>hypothesis</h2>
+    <p>
+      An intrusion is naturally represented as a network: tools, infrastructure, techniques, victims and
+      artefacts related to one another. When several intrusions are analysed, some entities recur and connect
+      them. Expert analysts identify these overlaps and weigh them by judgement. Our hypothesis is that
+      <strong>graph neural networks with attention mechanisms</strong> can generalise that work: learning which
+      relationships matter and how much, over heterogeneous networks and guided by meta-paths defined with
+      expert knowledge.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>objectives</h2>
+    <h3>Better training data</h3>
+    <p>
+      Build datasets from intelligence on real intrusions, drawing on sharing platforms such as
+      <a href="https://www.misp-project.org/">MISP</a>, and from adversary emulation with tools such as
+      <a href="https://caldera.mitre.org/">MITRE CALDERA</a>. Define an optimal feature set for attribution
+      that combines semantics and structure.
+    </p>
+    <h3>Attribution with graph attention networks</h3>
+    <p>
+      Model the relationships between intrusions as a heterogeneous network and apply multi-level attention to
+      learn the influence of each relationship and each meta-path on attribution. Treat high-level indicators
+      (tools, techniques) and atomic ones (IPs, hashes) differently, and detect spurious relationships.
+    </p>
+    <h3>Alert clustering and action inference</h3>
+    <p>
+      Cluster related alerts from a system in real time to infer the attacker's sequence of actions, map them
+      to the <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> framework and prioritise incident response.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>impact</h2>
+    <p>
+      The project falls within the strategic lines of Spain's National Cybersecurity Plan and the National
+      Cybersecurity Strategy's goal of expanding detection and analysis capabilities. Its results will make it
+      possible to add attribution metadata to incidents shared on threat intelligence platforms, acting both as
+      consumer and producer of intelligence, with loosely coupled integration and low deployment cost.
+    </p>
+    <p>
+      APT-GRAN contributes to Sustainable Development Goals 9 (resilient infrastructure and innovation) and 16
+      (peaceful, just and inclusive societies).
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>funding</h2>
+    <p>
+      Project funded by the Own Research Programme of the University of Alcalá, 2025 call for research project
+      grants. Duration: 12 months. Supported by the Isdefe-UAH Chair in ICT and Artificial Intelligence.
+    </p>
+  </div>
+</Base>

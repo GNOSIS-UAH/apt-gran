@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import ListaEquipo from '../../components/ListaEquipo.astro';
+import Logos from '../../components/Logos.astro';
+import Social from '../../components/Social.astro';
+---
+<Base titulo="Team" lang="en">
+  <header class="post-header">
+    <h1 class="post-title">team</h1>
+    <p class="post-description">Researchers from the NetIS and GHEODE groups at the University of Alcalá.</p>
+  </header>
+
+  <p>
+    APT-GRAN brings together researchers from the <strong><a href="https://netis.web.uah.es/" rel="noopener">NetIS</a></strong>
+    group, through its GNOSIS subgroup (Geometry, Networks and Optimization for Services and Intelligent Systems), and from
+    the <strong><a href="https://gheode.web.uah.es/" rel="noopener">GHEODE</a></strong> group, both at the University of
+    Alcalá, with experience in graph-based distributed optimisation, cybersecurity and machine learning.
+  </p>
+
+  <Logos lang="en" nota={false} estilo="margin:1rem 0 2rem" />
+  <ListaEquipo lang="en" />
+
+  <h2>collaboration</h2>
+  <p>
+    The project is supported by <a href="https://www.isdefe.es/">Isdefe</a> through the Isdefe-UAH Chair in ICT
+    and Artificial Intelligence, and maintains collaborations with groups at Delft University of Technology, MIT
+    and Politecnico di Milano.
+  </p>
+
+  <Social nota="Escuela Politécnica Superior, University of Alcalá. Ctra. Madrid-Barcelona, km 33.600. 28805 Alcalá de Henares, Madrid, Spain." />
+</Base>

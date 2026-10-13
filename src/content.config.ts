@@ -1,6 +1,10 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// Noticias y resultados tienen un fichero por idioma: los ingleses van en la
+// subcarpeta `en/`. Publicaciones, recursos y equipo se comparten entre
+// idiomas y admiten campos opcionales con sufijo `_en`.
+
 const noticias = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/noticias' }),
   schema: z.object({
@@ -34,8 +38,10 @@ const publicaciones = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/publicaciones' }),
   schema: z.object({
     titulo: z.string(),
+    titulo_en: z.string().optional(),
     autores: z.string(),
     venue: z.string(),
+    venue_en: z.string().optional(),
     abrev: z.string().optional(),
     anio: z.number(),
     tipo: z.enum(['revista', 'congreso', 'capitulo', 'divulgacion', 'charla']),
@@ -51,6 +57,7 @@ const recursos = defineCollection({
     titulo: z.string(),
     tipo: z.enum(['dataset', 'software', 'documento']),
     resumen: z.string(),
+    resumen_en: z.string().optional(),
     licencia: z.string().optional(),
     github: z.string().url().optional(),
     zenodo: z.string().url().optional(),
@@ -63,6 +70,7 @@ const equipo = defineCollection({
   schema: z.object({
     nombre: z.string(),
     rol: z.string(),
+    rol_en: z.string().optional(),
     grupo: z.string(),
     orden: z.number(),
     orcid: z.string().optional(),

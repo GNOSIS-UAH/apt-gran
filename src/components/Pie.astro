@@ -1,9 +1,9 @@
 ---
+import { textos, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
 const anio = new Date().getFullYear();
 ---
 <footer class="pie">
-  <div class="contenedor">
-    © {anio} Universidad de Alcalá. Proyecto APT-GRAN, financiado por el Programa Propio de Investigación de la UAH.
-    Hecho con Astro y alojado en GitHub Pages.
-  </div>
+  <div class="contenedor">© {anio} {textos[lang].pie}</div>
 </footer>

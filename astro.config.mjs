@@ -1,9 +1,14 @@
 import { defineConfig } from 'astro/config';
 
-// Cambia `site` y `base` cuando se decida el dominio definitivo.
-// Para GitHub Pages en https://<usuario>.github.io/apt-gran/ usa base: '/apt-gran'.
+// Español en la raíz, inglés en /en/.
+// Si se cambia el repositorio o el dominio, ajustar `site` y `base`.
 export default defineConfig({
   site: 'https://gnosis-uah.github.io',
   base: '/apt-gran',
   trailingSlash: 'ignore',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: { prefixDefaultLocale: false },
+  },
 });

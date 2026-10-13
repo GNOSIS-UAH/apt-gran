@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.data.orden);
+---
+<ul class="personas">
+  {equipo.map((p) => (
+    <li class="persona">
+      <span class="title">{p.data.nombre}</span>
+      <span class="rol">{(lang === 'en' && p.data.rol_en) || p.data.rol} · {p.data.grupo}</span>
+      <span class="links">
+        {p.data.orcid && <a class="btn" href={`https://orcid.org/${p.data.orcid}`} rel="noopener">ORCID</a>}
+        {p.data.web && <a class="btn" href={p.data.web} rel="noopener">Web</a>}
+      </span>
+    </li>
+  ))}
+</ul>

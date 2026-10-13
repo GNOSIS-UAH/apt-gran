@@ -2,7 +2,9 @@
 titulo: "Los atacantes piensan en grafos: teoría de grafos para la ciberseguridad"
 autores: "Enrique de la Hoz"
 venue: "Taller en la Semana de la Ciencia y la Innovación de Madrid, Escuela Politécnica Superior, Universidad de Alcalá"
-abrev: "Semana de la Ciencia"
+titulo_en: "Attackers think in graphs: graph theory for cybersecurity"
+venue_en: "Workshop at the Madrid Science and Innovation Week, Escuela Politécnica Superior, University of Alcalá"
+abrev: "Semana Ciencia"
 anio: 2026
 tipo: charla
 url: "https://www.semanacienciamadrid.org/actividad/los-atacantes-piensan-en-grafos-teoria-de-grafos-para-la-ciberseguridad"

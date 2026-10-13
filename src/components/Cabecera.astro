@@ -1,25 +1,33 @@
 ---
+import { textos, prefijo, rutaAlterna, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = textos[lang];
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const ruta = Astro.url.pathname.replace(base, '').replace(/\/$/, '') || '/';
+const pre = prefijo(lang);
 const enlaces = [
-  { href: '/', texto: 'inicio' },
-  { href: '/proyecto', texto: 'el proyecto' },
-  { href: '/resultados', texto: 'resultados' },
-  { href: '/publicaciones', texto: 'publicaciones' },
-  { href: '/recursos', texto: 'recursos' },
-  { href: '/equipo', texto: 'equipo' },
+  { href: '/', texto: t.nav.inicio },
+  { href: '/proyecto', texto: t.nav.proyecto },
+  { href: '/resultados', texto: t.nav.resultados },
+  { href: '/publicaciones', texto: t.nav.publicaciones },
+  { href: '/recursos', texto: t.nav.recursos },
+  { href: '/equipo', texto: t.nav.equipo },
 ];
-const activo = (h: string) => (h === '/' ? ruta === '/' : ruta.startsWith(h));
+const sinPrefijo = ruta.replace(/^\/en(?=\/|$)/, '') || '/';
+const activo = (h: string) => (h === '/' ? sinPrefijo === '/' : sinPrefijo.startsWith(h));
+const otra = rutaAlterna(lang, ruta);
 ---
-<a class="saltar" href="#contenido">Saltar al contenido</a>
+<a class="saltar" href="#contenido">{t.saltar}</a>
 <header class="navbar">
   <div class="contenedor navbar__fila">
-    <a class="navbar__marca" href={`${base}/`}><span class="negrita">APT</span>-GRAN</a>
+    <a class="navbar__marca" href={`${base}${pre}/`}><span class="negrita">APT</span>-GRAN</a>
     <nav aria-label="Principal">
       <ul class="navbar__menu">
         {enlaces.map((e) => (
-          <li><a href={`${base}${e.href}`} aria-current={activo(e.href) ? 'page' : undefined}>{e.texto}</a></li>
+          <li><a href={`${base}${pre}${e.href === '/' ? '/' : e.href}`} aria-current={activo(e.href) ? 'page' : undefined}>{e.texto}</a></li>
         ))}
+        <li><a href={`${base}${otra}`} hreflang={t.cambioIdioma.lang} lang={t.cambioIdioma.lang} title={t.cambioIdioma.titulo}>{t.cambioIdioma.etiqueta}</a></li>
       </ul>
     </nav>
   </div>

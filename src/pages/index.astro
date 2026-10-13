@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import Noticias from '../components/Noticias.astro';
+import Logos from '../components/Logos.astro';
+import Social from '../components/Social.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const noticias = (await getCollection('noticias')).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf()).slice(0, 6);
-const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).replace('.', '');
 ---
-<Base titulo="Inicio">
+<Base titulo="Inicio" lang="es">
   <header class="post-header">
     <h1 class="post-title"><span class="negrita">APT</span>-GRAN</h1>
     <p class="post-description">Atribución Inteligente de Amenazas Persistentes Avanzadas en Ciberseguridad mediante Redes Neuronales y Modelado en Grafos.</p>
@@ -42,32 +42,7 @@ const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 
   </div>
 
   <h2>noticias</h2>
-  <div class="news">
-    {noticias.length === 0 ? (
-      <p class="nota">Todavía no hay noticias.</p>
-    ) : (
-      <table>
-        {noticias.map((n) => (
-          <tr>
-            <th scope="row">{fmt(n.data.fecha)}</th>
-            <td>{n.data.resumen}{n.data.url && <> <a href={n.data.url} rel="noopener">{n.data.etiqueta}</a>.</>}</td>
-          </tr>
-        ))}
-      </table>
-    )}
-  </div>
-
-  <div class="logos">
-    <a href="https://netis.web.uah.es/" rel="noopener"><img class="alto" src={`${base}/img/netis.svg`} alt="NetIS, Grupo de Investigación Redes y Sistemas Inteligentes, UAH" /></a>
-    <a href="https://gheode.web.uah.es/" rel="noopener"><img src={`${base}/img/gheode.png`} alt="GHEODE, Universidad de Alcalá" /></a>
-    <p class="logos__nota">Grupos de investigación <a href="https://netis.web.uah.es/" rel="noopener">NetIS</a> (subgrupo GNOSIS) y <a href="https://gheode.web.uah.es/" rel="noopener">GHEODE</a>, Universidad de Alcalá.</p>
-  </div>
-
-  <div class="social">
-    <a href="mailto:enrique.delahoz@uah.es">enrique.delahoz@uah.es</a>
-    <a href="https://github.com/GNOSIS-UAH/apt-gran" rel="noopener">GitHub</a>
-    <a href="https://zenodo.org/" rel="noopener">Zenodo</a>
-    <a href="https://x.com/" rel="noopener">X</a>
-    <a href="https://bsky.app/" rel="noopener">Bluesky</a>
-  </div>
+  <Noticias lang="es" />
+  <Logos lang="es" />
+  <Social />
 </Base>

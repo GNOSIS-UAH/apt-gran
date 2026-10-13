@@ -1,40 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
-const tipos: Record<string, string> = { revista: 'revistas', congreso: 'congresos', capitulo: 'capítulos de libro', charla: 'charlas y talleres', divulgacion: 'divulgación' };
-const todas = (await getCollection('publicaciones')).sort((a, b) => b.data.anio - a.data.anio);
-const grupos = Object.keys(tipos).map((t) => ({ t, items: todas.filter((p) => p.data.tipo === t) })).filter((g) => g.items.length > 0);
-const abrev = (p: (typeof todas)[number]) => p.data.abrev ?? p.data.venue.split(/\s+/).map((w) => w[0]).join('').toUpperCase().slice(0, 6);
+import ListaPublicaciones from '../components/ListaPublicaciones.astro';
 ---
-<Base titulo="Publicaciones">
+<Base titulo="Publicaciones" lang="es">
   <header class="post-header">
     <h1 class="post-title">publicaciones</h1>
     <p class="post-description">Artículos, comunicaciones a congresos, charlas y divulgación del proyecto.</p>
   </header>
-  {grupos.length === 0 ? (
-    <p class="nota">Aún no hay publicaciones asociadas al proyecto.</p>
-  ) : grupos.map((g) => (
-    <>
-      <h2 class="bibliography">{tipos[g.t]}</h2>
-      <ol class="bibliography">
-        {g.items.map((p) => (
-          <li>
-            <div class="row">
-              <div class="abbr"><span class="badge">{abrev(p)}</span></div>
-              <div class="cuerpo">
-                <div class="title">{p.data.titulo}</div>
-                <div class="author">{p.data.autores}</div>
-                <div class="periodical"><em>{p.data.venue}</em>, {p.data.anio}</div>
-                <div class="links">
-                  {p.data.doi && <a class="btn" href={`https://doi.org/${p.data.doi}`} rel="noopener">DOI</a>}
-                  {p.data.url && <a class="btn" href={p.data.url} rel="noopener">Enlace</a>}
-                  {p.data.estado !== 'publicado' && <span class="estado">{p.data.estado}</span>}
-                </div>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </>
-  ))}
+  <ListaPublicaciones lang="es" />
 </Base>
