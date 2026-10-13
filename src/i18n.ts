@@ -73,3 +73,32 @@ export const rutaAlterna = (lang: Lang, rutaSinBase: string) => {
 
 export const fecha = (d: Date, lang: Lang, opciones: Intl.DateTimeFormatOptions) =>
   d.toLocaleDateString(textos[lang].locale, opciones).replace('.', '');
+
+export const fichaUAH = 'https://portalcientifico.uah.es/proyectos/1528321/detalle';
+export const repositorio = 'https://github.com/GNOSIS-UAH/apt-gran';
+
+// Datos del proyecto para los datos estructurados (schema.org) de JsonLd.astro.
+export const proyecto = {
+  acronimo: 'APT-GRAN',
+  titulo: 'Atribución Inteligente de Amenazas Persistentes Avanzadas en Ciberseguridad mediante Redes Neuronales y Modelado en Grafos',
+  titulo_en: 'Intelligent Attribution of Advanced Persistent Threats in Cybersecurity through Neural Networks and Graph Modelling',
+  referencia,
+  inicio: '2025-12-19',
+  fin: '2026-12-18',
+  importe: 7605,
+  sameAs: [fichaUAH, 'https://edelahozuah.github.io/investigacion/#apt-gran', repositorio],
+  financiador: {
+    nombre: 'Universidad de Alcalá',
+    nombre_en: 'University of Alcalá',
+    url: 'https://www.uah.es/',
+    sameAs: ['https://ror.org/04pmn0e78'],
+  },
+  convocatoria: 'Ayudas para la realización de proyectos de investigación 2025, Programa Propio de Investigación de la Universidad de Alcalá',
+  convocatoria_en: '2025 research project grants, Own Research Programme of the University of Alcalá',
+  grupos: [
+    { id: 'netis', clave: 'NetIS', nombre: 'NetIS, Grupo de Investigación Redes y Sistemas Inteligentes', nombre_en: 'NetIS, Networks and Intelligent Systems research group', url: 'https://netis.web.uah.es/' },
+    { id: 'gheode', clave: 'GHEODE', nombre: 'GHEODE, Grupo de Investigación en Heurísticas Avanzadas y Optimización para el Diseño de Sistemas Inteligentes', nombre_en: 'GHEODE, Advanced Heuristics and Optimization research group', url: 'https://gheode.web.uah.es/' },
+  ],
+  palabrasClave: ['atribución de ciberataques', 'amenazas persistentes avanzadas', 'inteligencia de ciberamenazas', 'redes neuronales de grafos', 'MITRE ATT&CK', 'ciberseguridad'],
+  palabrasClave_en: ['cyberattack attribution', 'advanced persistent threats', 'cyber threat intelligence', 'graph neural networks', 'MITRE ATT&CK', 'cybersecurity'],
+};

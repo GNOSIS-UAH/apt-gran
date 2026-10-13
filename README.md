@@ -41,6 +41,10 @@ El español se sirve en la raíz y el inglés en `/en/`. Cada página tiene su e
 - `src/pages/recursos.astro`: tarjetas con enlaces a GitHub y Zenodo.
 - `src/pages/equipo.astro`: fichas, colaboraciones y contacto.
 
+## Datos estructurados
+
+`src/components/JsonLd.astro` genera en cada página un bloque JSON-LD de schema.org con la universidad, los grupos, el proyecto (`ResearchProject` con su `MonetaryGrant`), las personas del equipo (con su ORCID como identificador), el sitio y la página. En publicaciones, recursos y resultados añade además cada entrada (`ScholarlyArticle`, `Dataset`, `SoftwareSourceCode`, `Thesis`). Los datos fijos del proyecto están en `proyecto`, en `src/i18n.ts`.
+
 ## Pendiente antes de publicar
 
 - Enlaces reales a Zenodo, X y Bluesky en `src/components/Social.astro`.

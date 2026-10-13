@@ -61,6 +61,7 @@ const recursos = defineCollection({
     licencia: z.string().optional(),
     github: z.string().url().optional(),
     zenodo: z.string().url().optional(),
+    huggingface: z.string().url().optional(),
     cita: z.string().optional(),
   }),
 });
