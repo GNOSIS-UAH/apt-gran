@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="El proyecto">
+  <header class="post-header">
+    <h1 class="post-title">el proyecto</h1>
+    <p class="post-description">Motivación, hipótesis y objetivos de APT-GRAN.</p>
+  </header>
+
+  <div class="linea">
+    <h2>por qué atribuir</h2>
+    <p>
+      El número y el impacto de los incidentes de seguridad que afectan a empresas y organizaciones ha crecido
+      de forma alarmante. La Inteligencia de Ciberamenazas estudia la actividad de los grupos responsables para
+      ordenar y clasificar sus comportamientos, de modo que ese conocimiento sirva para prevenir y responder
+      mejor. Uno de sus mayores retos es la <strong>atribución</strong>: determinar quién está detrás de un
+      conjunto de acciones maliciosas. Es un aspecto crítico, porque permite perseguir legalmente a los
+      responsables y, sobre todo, anticipar y responder con más eficacia a incidentes presentes y futuros.
+    </p>
+    <p>
+      Las aproximaciones actuales están muy limitadas. La mayoría trabaja sobre muestras de malware, un enfoque
+      que el auge del malware como servicio y el uso de varias familias en un mismo ataque han dejado
+      insuficiente. Los informes públicos de amenazas, por su parte, tienen calidad desigual, pocos indicadores
+      y poco contexto.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>hipótesis</h2>
+    <p>
+      Una intrusión se representa de forma natural como una red: herramientas, infraestructura, técnicas,
+      víctimas y artefactos relacionados entre sí. Cuando se analizan varias intrusiones, algunas entidades se
+      repiten y las conectan. Los analistas expertos identifican esos solapamientos y los ponderan según su
+      juicio. Nuestra hipótesis es que las <strong>redes neuronales de grafos con mecanismos de atención</strong>
+      pueden generalizar ese trabajo: aprender qué relaciones importan y cuánto, sobre redes heterogéneas y
+      guiadas por metacaminos definidos con conocimiento experto.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>objetivos</h2>
+    <h3>Mejores datos para entrenar</h3>
+    <p>
+      Generar datasets a partir de inteligencia de intrusiones reales, aprovechando plataformas de compartición
+      como <a href="https://www.misp-project.org/">MISP</a>, y de la emulación de adversarios con herramientas
+      como <a href="https://caldera.mitre.org/">MITRE CALDERA</a>. Definir un conjunto óptimo de características
+      para la atribución que combine semántica y estructura.
+    </p>
+    <h3>Atribución con redes de atención en grafos</h3>
+    <p>
+      Modelar las relaciones entre intrusiones como una red heterogénea y aplicar atención multinivel para
+      aprender la influencia de cada relación y de cada metacamino en la atribución. Tratar de forma
+      diferenciada los indicadores de alto nivel (herramientas, técnicas) y los atómicos (IPs, hashes), y
+      detectar relaciones espurias.
+    </p>
+    <h3>Agrupación de alertas e inferencia de acciones</h3>
+    <p>
+      Agrupar en tiempo real las alertas relacionadas de un sistema para inferir las secuencias de acciones del
+      atacante, mapearlas al marco <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> y priorizar la
+      respuesta a incidentes.
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>impacto</h2>
+    <p>
+      El proyecto se enmarca en las líneas estratégicas del Plan Nacional de Ciberseguridad y en el objetivo de
+      la Estrategia Nacional de Ciberseguridad de ampliar las capacidades de detección y análisis. Sus
+      resultados permitirán añadir metadatos de atribución a los incidentes compartidos en plataformas de
+      ciberamenazas, actuando a la vez como consumidor y productor de inteligencia, con una integración de bajo
+      acoplamiento y reducido coste de despliegue.
+    </p>
+    <p>
+      APT-GRAN contribuye a los Objetivos de Desarrollo Sostenible 9 (infraestructuras resilientes e
+      innovación) y 16 (sociedades justas, pacíficas e inclusivas).
+    </p>
+  </div>
+
+  <div class="linea">
+    <h2>financiación</h2>
+    <p>
+      Proyecto financiado por el Programa Propio de Investigación de la Universidad de Alcalá, convocatoria de
+      ayudas para la realización de proyectos de investigación 2025. Duración: 12 meses. Cuenta con el apoyo de
+      la Cátedra Isdefe-UAH en TIC e Inteligencia Artificial.
+    </p>
+  </div>
+</Base>

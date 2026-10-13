@@ -1,0 +1,15 @@
+Plantilla de resultado. Renombrar a <slug>.md para publicarlo.
+
+---
+titulo: "Dataset integrado de intrusiones a partir de MISP e informes públicos"
+fecha: 2026-03-01
+tema: datos          # datos | atribucion | alertas | otros
+resumen: "Una frase con el hallazgo principal."
+enlaces:
+  - etiqueta: "Repositorio"
+    url: "https://github.com/..."
+  - etiqueta: "Zenodo"
+    url: "https://doi.org/10.5281/zenodo..."
+---
+
+Texto opcional en Markdown con más detalle, figuras, etc.

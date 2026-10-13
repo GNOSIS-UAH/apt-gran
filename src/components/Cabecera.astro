@@ -1,0 +1,26 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ruta = Astro.url.pathname.replace(base, '').replace(/\/$/, '') || '/';
+const enlaces = [
+  { href: '/', texto: 'inicio' },
+  { href: '/proyecto', texto: 'el proyecto' },
+  { href: '/resultados', texto: 'resultados' },
+  { href: '/publicaciones', texto: 'publicaciones' },
+  { href: '/recursos', texto: 'recursos' },
+  { href: '/equipo', texto: 'equipo' },
+];
+const activo = (h: string) => (h === '/' ? ruta === '/' : ruta.startsWith(h));
+---
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="navbar">
+  <div class="contenedor navbar__fila">
+    <a class="navbar__marca" href={`${base}/`}><span class="negrita">APT</span>-GRAN</a>
+    <nav aria-label="Principal">
+      <ul class="navbar__menu">
+        {enlaces.map((e) => (
+          <li><a href={`${base}${e.href}`} aria-current={activo(e.href) ? 'page' : undefined}>{e.texto}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

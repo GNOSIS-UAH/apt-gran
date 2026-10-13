@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+const temas: Record<string, string> = { datos: 'Datos', atribucion: 'Atribución', alertas: 'Alertas', otros: 'Otros' };
+const resultados = (await getCollection('resultados')).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+const renderizados = await Promise.all(resultados.map(async (r) => ({ r, Content: (await render(r)).Content })));
+const fmt = (d: Date) => d.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+---
+<Base titulo="Resultados">
+  <header class="post-header">
+    <h1 class="post-title">resultados</h1>
+    <p class="post-description">Hallazgos, modelos y datos del proyecto, del más reciente al más antiguo.</p>
+  </header>
+  {renderizados.length === 0 ? (
+    <p class="nota">Los primeros resultados se publicarán en cuanto estén consolidados.</p>
+  ) : (
+    <ol class="bibliography">
+      {renderizados.map(({ r, Content }) => (
+        <li>
+          <div class="row">
+            <div class="abbr"><span class="badge">{temas[r.data.tema]}</span></div>
+            <div class="cuerpo">
+              <div class="title">{r.data.titulo}</div>
+              <div class="periodical nota">{fmt(r.data.fecha)}</div>
+              <p style="margin:.25rem 0 0">{r.data.resumen}</p>
+              <div class="prosa"><Content /></div>
+              {r.data.enlaces.length > 0 && (
+                <div class="links">{r.data.enlaces.map((e) => <a class="btn" href={e.url} rel="noopener">{e.etiqueta}</a>)}</div>
+              )}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  )}
+</Base>

@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const noticias = (await getCollection('noticias')).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf()).slice(0, 6);
+const fmt = (d: Date) => d.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).replace('.', '');
+---
+<Base titulo="Inicio">
+  <header class="post-header">
+    <h1 class="post-title"><span class="negrita">APT</span>-GRAN</h1>
+    <p class="post-description">Atribución Inteligente de Amenazas Persistentes Avanzadas en Ciberseguridad mediante Redes Neuronales y Modelado en Grafos.</p>
+  </header>
+
+  <div class="clearfix">
+    <div class="profile">
+      <div class="address">
+        <p>Universidad de Alcalá</p>
+        <p>Programa Propio de Investigación</p>
+        <p>Convocatoria 2025 · 12 meses</p>
+        <p>IP: Enrique de la Hoz</p>
+        <p>Co-IP: Laura M. Cornejo</p>
+      </div>
+    </div>
+    <p>
+      APT-GRAN es un proyecto de investigación de la <a href="https://www.uah.es/">Universidad de Alcalá</a>
+      sobre la <strong>atribución</strong> de ciberataques: determinar qué grupo de amenazas persistentes avanzadas
+      está detrás de una intrusión a partir de su actividad.
+    </p>
+    <p>
+      Partimos de una idea sencilla. Una intrusión se describe de forma natural como una red de entidades
+      relacionadas (herramientas, infraestructura, técnicas, víctimas), y cuando se analizan varias intrusiones
+      algunas de esas entidades se repiten y las conectan. Los analistas expertos identifican esos solapamientos
+      y los ponderan según su criterio. Nosotros investigamos cómo generalizar ese trabajo con
+      <a href={`${base}/proyecto`}>redes neuronales de grafos con mecanismos de atención</a>, capaces de aprender
+      qué relaciones importan y cuánto.
+    </p>
+    <p>
+      En esta web publicamos los <a href={`${base}/resultados`}>resultados</a> del proyecto conforme se consolidan,
+      las <a href={`${base}/publicaciones`}>publicaciones</a> y los <a href={`${base}/recursos`}>datasets y software</a>
+      que liberamos para que los experimentos se puedan reproducir.
+    </p>
+  </div>
+
+  <h2>noticias</h2>
+  <div class="news">
+    {noticias.length === 0 ? (
+      <p class="nota">Todavía no hay noticias.</p>
+    ) : (
+      <table>
+        {noticias.map((n) => (
+          <tr>
+            <th scope="row">{fmt(n.data.fecha)}</th>
+            <td>{n.data.resumen}</td>
+          </tr>
+        ))}
+      </table>
+    )}
+  </div>
+
+  <div class="social">
+    <a href="mailto:enrique.delahoz@uah.es">enrique.delahoz@uah.es</a>
+    <a href="https://github.com/" rel="noopener">GitHub</a>
+    <a href="https://zenodo.org/" rel="noopener">Zenodo</a>
+    <a href="https://x.com/" rel="noopener">X</a>
+    <a href="https://bsky.app/" rel="noopener">Bluesky</a>
+  </div>
+</Base>
