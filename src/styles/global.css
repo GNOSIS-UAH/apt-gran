@@ -171,3 +171,12 @@ ol.bibliography .cuerpo { flex: 1; min-width: 0; max-width: 66.6%; }
 
 /* Texto largo */
 .linea h2 { font-size: 1.6rem; }
+
+/* Logotipos de grupos y entidades */
+.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 3rem; margin: 2.5rem 0 0; }
+.logos img { height: 64px; width: auto; }
+.logos img.alto { height: 96px; }
+.logos__nota { flex-basis: 100%; text-align: center; color: var(--global-text-color-light); font-size: .85rem; margin: .25rem 0 0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logos img { background: #fff; padding: .4rem .6rem; border-radius: .25rem; }
+}

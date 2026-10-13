@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.data.orden);
 ---
 <Base titulo="Equipo">
@@ -15,6 +16,11 @@ const equipo = (await getCollection('equipo')).sort((a, b) => a.data.orden - b.d
     <strong>GHEODE</strong>, ambos de la Universidad de Alcalá, con experiencia en optimización distribuida
     sobre grafos, ciberseguridad y aprendizaje automático.
   </p>
+
+  <div class="logos" style="margin:1rem 0 2rem">
+    <img class="alto" src={`${base}/img/netis.svg`} alt="NetIS, Grupo de Investigación Redes y Sistemas Inteligentes, UAH" />
+    <img src={`${base}/img/gheode.png`} alt="GHEODE, Universidad de Alcalá" />
+  </div>
 
   <ul class="personas">
     {equipo.map((p) => (

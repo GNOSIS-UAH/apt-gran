@@ -35,7 +35,7 @@ Los ficheros `_ejemplo.md.txt` no se publican.
 
 ## Pendiente antes de publicar
 
-- Enlaces reales a GitHub, Zenodo, X y Bluesky en `src/pages/index.astro`.
+- Enlaces reales a Zenodo, X y Bluesky en `src/pages/index.astro`.
 
 ## Despliegue en GitHub Pages
 
