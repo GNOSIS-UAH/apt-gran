@@ -10,4 +10,6 @@ resumen: "A reproducible pipeline that processes PDF CTI reports and extracts TT
 enlaces:
   - etiqueta: "Full text at e_Buah (in Spanish)"
     url: "https://hdl.handle.net/10017/69753"
+  - etiqueta: "Code on GitHub"
+    url: "https://github.com/David-duque03/TTPs_Extraction_Pipeline"
 ---

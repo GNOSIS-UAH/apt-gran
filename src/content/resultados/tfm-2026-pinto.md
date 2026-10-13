@@ -10,4 +10,6 @@ resumen: "TTPAutoGraph, una herramienta de código abierto en Python que extrae 
 enlaces:
   - etiqueta: "Texto completo en e_Buah"
     url: "https://hdl.handle.net/10017/69751"
+  - etiqueta: "Código en GitHub"
+    url: "https://github.com/MiguelPilotoMPM/TTPAutoGraph"
 ---

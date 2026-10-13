@@ -10,4 +10,6 @@ resumen: "Un pipeline reproducible que procesa informes CTI en PDF y extrae TTPs
 enlaces:
   - etiqueta: "Texto completo en e_Buah"
     url: "https://hdl.handle.net/10017/69753"
+  - etiqueta: "Código en GitHub"
+    url: "https://github.com/David-duque03/TTPs_Extraction_Pipeline"
 ---

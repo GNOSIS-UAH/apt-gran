@@ -10,4 +10,6 @@ resumen: "TTPAutoGraph, an open-source Python tool that extracts MITRE ATT&CK TT
 enlaces:
   - etiqueta: "Full text at e_Buah (in Spanish)"
     url: "https://hdl.handle.net/10017/69751"
+  - etiqueta: "Code on GitHub"
+    url: "https://github.com/MiguelPilotoMPM/TTPAutoGraph"
 ---
