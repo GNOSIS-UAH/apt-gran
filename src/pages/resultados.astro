@@ -2,20 +2,23 @@
 import Base from '../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 const temas: Record<string, string> = { datos: 'Datos', atribucion: 'Atribución', alertas: 'Alertas', otros: 'Otros' };
-const resultados = (await getCollection('resultados')).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
-const renderizados = await Promise.all(resultados.map(async (r) => ({ r, Content: (await render(r)).Content })));
+const todos = (await getCollection('resultados')).sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+const conContenido = await Promise.all(todos.map(async (r) => ({ r, Content: (await render(r)).Content })));
+const resultados = conContenido.filter(({ r }) => r.data.clase === 'resultado');
+const tfms = conContenido.filter(({ r }) => r.data.clase === 'tfm');
 const fmt = (d: Date) => d.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
 ---
 <Base titulo="Resultados">
   <header class="post-header">
     <h1 class="post-title">resultados</h1>
-    <p class="post-description">Hallazgos, modelos y datos del proyecto, del más reciente al más antiguo.</p>
+    <p class="post-description">Hallazgos, modelos y datos del proyecto, y trabajos académicos realizados en su marco.</p>
   </header>
-  {renderizados.length === 0 ? (
-    <p class="nota">Los primeros resultados se publicarán en cuanto estén consolidados.</p>
+
+  {resultados.length === 0 ? (
+    <p class="nota">Los primeros resultados del proyecto se publicarán en cuanto estén consolidados.</p>
   ) : (
     <ol class="bibliography">
-      {renderizados.map(({ r, Content }) => (
+      {resultados.map(({ r, Content }) => (
         <li>
           <div class="row">
             <div class="abbr"><span class="badge">{temas[r.data.tema]}</span></div>
@@ -32,5 +35,30 @@ const fmt = (d: Date) => d.toLocaleDateString('es-ES', { month: 'long', year: 'n
         </li>
       ))}
     </ol>
+  )}
+
+  {tfms.length > 0 && (
+    <>
+      <h2 class="bibliography">trabajos fin de máster</h2>
+      <ol class="bibliography">
+        {tfms.map(({ r, Content }) => (
+          <li>
+            <div class="row">
+              <div class="abbr"><span class="badge">TFM</span></div>
+              <div class="cuerpo">
+                <div class="title">{r.data.titulo}</div>
+                <div class="author">{r.data.autor}{r.data.direccion && <span class="nota"> · dirigido por {r.data.direccion}</span>}</div>
+                <div class="periodical"><em>{r.data.titulacion}</em>, {r.data.fecha.getFullYear()}</div>
+                <p style="margin:.25rem 0 0">{r.data.resumen}</p>
+                <div class="prosa"><Content /></div>
+                {r.data.enlaces.length > 0 && (
+                  <div class="links">{r.data.enlaces.map((e) => <a class="btn" href={e.url} rel="noopener">{e.etiqueta}</a>)}</div>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </>
   )}
 </Base>

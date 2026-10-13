@@ -4,6 +4,7 @@ Plantilla de resultado. Renombrar a <slug>.md para publicarlo.
 titulo: "Dataset integrado de intrusiones a partir de MISP e informes públicos"
 fecha: 2026-03-01
 tema: datos          # datos | atribucion | alertas | otros
+clase: resultado     # resultado | tfm (trabajo fin de máster: añade autor, direccion, titulacion)
 resumen: "Una frase con el hallazgo principal."
 enlaces:
   - etiqueta: "Repositorio"

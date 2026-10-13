@@ -17,6 +17,11 @@ const resultados = defineCollection({
     fecha: z.coerce.date(),
     tema: z.enum(['datos', 'atribucion', 'alertas', 'otros']),
     resumen: z.string(),
+    // 'tfm' para trabajos fin de máster dirigidos en el marco del proyecto
+    clase: z.enum(['resultado', 'tfm']).default('resultado'),
+    autor: z.string().optional(),
+    direccion: z.string().optional(),
+    titulacion: z.string().optional(),
     enlaces: z
       .array(z.object({ etiqueta: z.string(), url: z.string().url() }))
       .default([]),
