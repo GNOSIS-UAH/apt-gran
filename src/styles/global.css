@@ -189,3 +189,4 @@ ol.bibliography .cuerpo { flex: 1; min-width: 0; max-width: 66.6%; }
   background: var(--global-card-bg-color); border: 1px solid var(--global-divider-color); border-radius: .25rem;
   user-select: all;
 }
+ol.bibliography li[id] { scroll-margin-top: 4.5rem; }

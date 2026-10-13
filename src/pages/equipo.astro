@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ListaEquipo from '../components/ListaEquipo.astro';
+import Estudiantes from '../components/Estudiantes.astro';
 import Logos from '../components/Logos.astro';
 import Social from '../components/Social.astro';
 ---
@@ -19,6 +20,10 @@ import Social from '../components/Social.astro';
 
   <Logos lang="es" nota={false} estilo="margin:1rem 0 2rem" />
   <ListaEquipo lang="es" />
+
+  <h2>estudiantes</h2>
+  <p>Estudiantes que han realizado su trabajo fin de máster en el marco del proyecto.</p>
+  <Estudiantes lang="es" />
 
   <h2>colaboración</h2>
   <p>

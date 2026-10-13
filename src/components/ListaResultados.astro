@@ -9,13 +9,14 @@ const todos = (await getCollection('resultados', ({ id }) => (lang === 'en') ===
 const conContenido = await Promise.all(todos.map(async (r) => ({ r, Content: (await render(r)).Content })));
 const resultados = conContenido.filter(({ r }) => r.data.clase === 'resultado');
 const tfms = conContenido.filter(({ r }) => r.data.clase === 'tfm');
+const ancla = (id: string) => id.replace(/^en\//, '');
 ---
 {resultados.length === 0 ? (
   <p class="nota">{t.sinResultados}</p>
 ) : (
   <ol class="bibliography">
     {resultados.map(({ r, Content }) => (
-      <li>
+      <li id={ancla(r.id)}>
         <div class="row">
           <div class="abbr"><span class="badge">{t.temas[r.data.tema]}</span></div>
           <div class="cuerpo">
@@ -38,7 +39,7 @@ const tfms = conContenido.filter(({ r }) => r.data.clase === 'tfm');
     <h2 class="bibliography">{t.tfm}</h2>
     <ol class="bibliography">
       {tfms.map(({ r, Content }) => (
-        <li>
+        <li id={ancla(r.id)}>
           <div class="row">
             <div class="abbr"><span class="badge">TFM</span></div>
             <div class="cuerpo">

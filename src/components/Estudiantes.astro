@@ -1,0 +1,22 @@
+---
+// Estudiantes que han realizado su TFM en el marco del proyecto. Se genera a
+// partir de las entradas de resultados con clase "tfm".
+import { getCollection } from 'astro:content';
+import { prefijo, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const tfms = (await getCollection('resultados', ({ id, data }) => data.clase === 'tfm' && (lang === 'en') === id.startsWith('en/')))
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf());
+const ancla = (id: string) => id.replace(/^en\//, '');
+---
+{tfms.length > 0 && (
+  <ul class="personas">
+    {tfms.map((t) => (
+      <li class="persona">
+        <span class="title">{t.data.autor}</span>
+        <span class="rol"><a href={`${base}${prefijo(lang)}/resultados#${ancla(t.id)}`}>{t.data.titulo}</a> · {t.data.fecha.getFullYear()}</span>
+      </li>
+    ))}
+  </ul>
+)}

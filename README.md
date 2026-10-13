@@ -19,6 +19,7 @@ npm run build      # genera el sitio en dist/
 | Publicación | `src/content/publicaciones/` | `_ejemplo.md.txt` |
 | Recurso (dataset, software) | `src/content/recursos/` | `_ejemplo.md.txt` |
 | Persona | `src/content/equipo/` | cualquier fichero existente |
+| Estudiante de TFM | se genera solo: entrada en resultados con `clase: tfm` | `_ejemplo.md.txt` |
 
 Copia la plantilla, renómbrala a `<slug>.md`, rellena la cabecera y ejecuta `npm run build`. Si falta un campo obligatorio o un valor no es válido, la compilación falla indicando el fichero.
 
