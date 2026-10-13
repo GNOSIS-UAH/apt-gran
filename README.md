@@ -39,4 +39,4 @@ Los ficheros `_ejemplo.md.txt` no se publican.
 
 ## Despliegue en GitHub Pages
 
-Crear un repositorio, subir esta carpeta y usar la acción oficial de Astro (`withastro/action`). Si el sitio se sirve en `https://<org>.github.io/<repo>/`, poner `base: '/<repo>'` en `astro.config.mjs`.
+El repositorio es https://github.com/GNOSIS-UAH/apt-gran. Cada push a `main` ejecuta `.github/workflows/deploy.yml` y publica el sitio en https://gnosis-uah.github.io/apt-gran/. Si se cambia el repositorio o el dominio, ajustar `site` y `base` en `astro.config.mjs`.
