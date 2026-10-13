@@ -24,6 +24,20 @@ const abs = (r: string) => `${site}${base}${r === '/' ? '/' : r + '/'}`;
     <link rel="alternate" hreflang={lang} href={abs(ruta)} />
     <link rel="alternate" hreflang={lang === 'es' ? 'en' : 'es'} href={abs(otra)} />
     <link rel="alternate" hreflang="x-default" href={abs(lang === 'es' ? ruta : otra)} />
+    <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
+    <link rel="alternate" type="text/plain" title="llms.txt" href={`${base}/llms.txt`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="APT-GRAN" />
+    <meta property="og:title" content={`${titulo} | ${t.tituloSitio}`} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={abs(ruta)} />
+    <meta property="og:image" content={`${site}${base}/img/apt-gran-og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="APT-GRAN, Universidad de Alcalá" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_GB' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" />

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gnosis-uah.github.io/apt-gran/sitemap-index.xml

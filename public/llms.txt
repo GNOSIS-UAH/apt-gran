@@ -1,0 +1,30 @@
+# APT-GRAN
+
+> Proyecto de investigación de la Universidad de Alcalá (2025-2026) sobre la atribución de amenazas persistentes avanzadas (APT) mediante redes neuronales de grafos. Referencia PIUAH25/IA-058, Programa Propio de Investigación de la UAH. Web en español, con versión en inglés en /en/.
+
+APT-GRAN (Atribución Inteligente de Amenazas Persistentes Avanzadas en Ciberseguridad mediante Redes Neuronales y Modelado en Grafos) investiga cómo determinar qué grupo APT está detrás de una intrusión a partir de su actividad. Modela cada intrusión como una red heterogénea de entidades (herramientas, infraestructura, técnicas MITRE ATT&CK, indicadores de compromiso) y aplica redes de atención en grafos sobre metacaminos definidos con conocimiento experto para aprender qué relaciones entre intrusiones importan y cuánto. Tres objetivos: mejores datasets a partir de intrusiones reales (MISP) y emulación de adversarios (MITRE CALDERA); atribución con redes de atención multinivel; y agrupación de alertas en tiempo real para inferir las acciones del atacante.
+
+Investigadores principales: Enrique de la Hoz de la Hoz y Laura María Cornejo Bueno. Grupos NetIS (subgrupo GNOSIS) y GHEODE de la Universidad de Alcalá. Apoyo de la Cátedra Isdefe-UAH en TIC e Inteligencia Artificial. Duración: diciembre de 2025 a diciembre de 2026.
+
+## Páginas
+
+- [Inicio](https://gnosis-uah.github.io/apt-gran/): presentación y noticias ([English](https://gnosis-uah.github.io/apt-gran/en/))
+- [El proyecto](https://gnosis-uah.github.io/apt-gran/proyecto/): motivación, hipótesis, objetivos, impacto, financiación, agradecimiento y cómo citar, transferencia y contacto para empresas ([English](https://gnosis-uah.github.io/apt-gran/en/proyecto/))
+- [Resultados](https://gnosis-uah.github.io/apt-gran/resultados/): hallazgos del proyecto y trabajos fin de máster realizados en su marco ([English](https://gnosis-uah.github.io/apt-gran/en/resultados/))
+- [Publicaciones](https://gnosis-uah.github.io/apt-gran/publicaciones/): artículos, congresos, charlas y divulgación ([English](https://gnosis-uah.github.io/apt-gran/en/publicaciones/))
+- [Recursos](https://gnosis-uah.github.io/apt-gran/recursos/): software y datasets en abierto ([English](https://gnosis-uah.github.io/apt-gran/en/recursos/))
+- [Equipo](https://gnosis-uah.github.io/apt-gran/equipo/): investigadores, estudiantes, colaboración y contacto ([English](https://gnosis-uah.github.io/apt-gran/en/equipo/))
+
+## Cómo citar
+
+Agradecimiento: "Este trabajo ha sido financiado por la Universidad de Alcalá a través del proyecto APT-GRAN (PIUAH25/IA-058), Programa Propio de Investigación, convocatoria 2025."
+
+## Recursos
+
+- [TTPs Extraction Pipeline](https://github.com/David-duque03/TTPs_Extraction_Pipeline): pipeline de extracción de TTPs e indicadores de compromiso de informes CTI en PDF (MIT)
+- [TTPAutoGraph](https://github.com/MiguelPilotoMPM/TTPAutoGraph): extracción y análisis visual como grafos de TTPs e IoC de informes CTI (MIT)
+- [Repositorio de la web](https://github.com/GNOSIS-UAH/apt-gran)
+
+## Contacto
+
+Enrique de la Hoz, enrique.delahoz@uah.es. Escuela Politécnica Superior, Universidad de Alcalá, Alcalá de Henares (Madrid). Web personal del IP: https://edelahozuah.github.io/

@@ -5,5 +5,5 @@ const { lang } = Astro.props;
 const anio = new Date().getFullYear();
 ---
 <footer class="pie">
-  <div class="contenedor">© {anio} {textos[lang].pie}</div>
+  <div class="contenedor">© {anio} {textos[lang].pie} <a href={textos[lang].privacidadUrl} rel="noopener">{textos[lang].privacidad}</a></div>
 </footer>
