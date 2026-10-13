@@ -171,6 +171,7 @@ ol.bibliography .cuerpo { flex: 1; min-width: 0; max-width: 66.6%; }
 
 /* Texto largo */
 .linea h2 { font-size: 1.6rem; }
+.linea[id], h2[id], h3[id] { scroll-margin-top: 4.5rem; }
 
 /* Logotipos de grupos y entidades */
 .logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 3rem; margin: 2.5rem 0 0; }
@@ -179,4 +180,12 @@ ol.bibliography .cuerpo { flex: 1; min-width: 0; max-width: 66.6%; }
 .logos__nota { flex-basis: 100%; text-align: center; color: var(--global-text-color-light); font-size: .85rem; margin: .25rem 0 0; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .logos img { background: #fff; padding: .4rem .6rem; border-radius: .25rem; }
+}
+
+/* Bloques de cita y agradecimiento */
+.cita {
+  font: .85rem/1.5 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  white-space: pre-wrap; margin: 0 0 .75rem; padding: .75rem 1rem;
+  background: var(--global-card-bg-color); border: 1px solid var(--global-divider-color); border-radius: .25rem;
+  user-select: all;
 }

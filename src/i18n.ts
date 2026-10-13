@@ -1,5 +1,11 @@
 export type Lang = 'es' | 'en';
 
+// Estadísticas de acceso con GoatCounter (sin cookies ni datos personales).
+// Vacío para desactivarlas.
+export const goatcounter = 'https://apt-gran.goatcounter.com/count';
+export const referencia = 'PIUAH25/IA-058';
+export const urlSitio = 'https://gnosis-uah.github.io/apt-gran/';
+
 export const textos = {
   es: {
     locale: 'es-ES',

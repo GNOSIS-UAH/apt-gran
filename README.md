@@ -42,7 +42,8 @@ El español se sirve en la raíz y el inglés en `/en/`. Cada página tiene su e
 
 ## Pendiente antes de publicar
 
-- Enlaces reales a Zenodo, X y Bluesky en `src/pages/index.astro`.
+- Enlaces reales a Zenodo, X y Bluesky en `src/components/Social.astro`.
+- Crear el sitio `apt-gran` en GoatCounter (o cambiar `goatcounter` en `src/i18n.ts`).
 
 ## Despliegue en GitHub Pages
 

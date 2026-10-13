@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Base titulo="El proyecto" lang="es">
   <header class="post-header">
@@ -80,8 +81,46 @@ import Base from '../layouts/Base.astro';
     <h2>financiación</h2>
     <p>
       Proyecto financiado por el Programa Propio de Investigación de la Universidad de Alcalá, convocatoria de
-      ayudas para la realización de proyectos de investigación 2025. Duración: 12 meses. Cuenta con el apoyo de
-      la Cátedra Isdefe-UAH en TIC e Inteligencia Artificial.
+      ayudas para la realización de proyectos de investigación 2025, con referencia <strong>PIUAH25/IA-058</strong>.
+      Duración: 12 meses, de diciembre de 2025 a diciembre de 2026. Cuenta con el apoyo de la Cátedra Isdefe-UAH
+      en TIC e Inteligencia Artificial.
+    </p>
+  </div>
+
+  <div class="linea" id="citar">
+    <h2>agradecimiento y cómo citar</h2>
+    <p>
+      Los artículos, repositorios, presentaciones y demás resultados derivados del proyecto deben incluir el
+      siguiente agradecimiento:
+    </p>
+    <pre class="cita">Este trabajo ha sido financiado por la Universidad de Alcalá a través del proyecto APT-GRAN (PIUAH25/IA-058), Programa Propio de Investigación, convocatoria 2025.</pre>
+    <pre class="cita" lang="en">This work was funded by the University of Alcalá through the APT-GRAN project (PIUAH25/IA-058), Own Research Programme, 2025 call.</pre>
+    <p>Para citar el proyecto como tal:</p>
+    <pre class="cita">de la Hoz, E., Cornejo Bueno, L. M. et al. (2025–2026). APT-GRAN: Atribución Inteligente de Amenazas Persistentes Avanzadas en Ciberseguridad mediante Redes Neuronales y Modelado en Grafos (PIUAH25/IA-058). Universidad de Alcalá. https://gnosis-uah.github.io/apt-gran/</pre>
+    <p class="nota">
+      El software y los datasets tienen su propia cita, con DOI, en la página de <a href={`${base}/recursos`}>recursos</a>.
+    </p>
+  </div>
+
+  <div class="linea" id="transferencia">
+    <h2>transferencia y contacto para empresas</h2>
+    <p>
+      APT-GRAN produce resultados pensados para integrarse en entornos reales con bajo acoplamiento: modelos de
+      atribución de actividad maliciosa a grupos conocidos, herramientas de extracción de técnicas e indicadores a
+      partir de informes de inteligencia, y un modelo de integración con plataformas de compartición de amenazas
+      como MISP que permite añadir metadatos de atribución a los incidentes compartidos.
+    </p>
+    <p>
+      Nos interesa colaborar con centros de respuesta a incidentes (CERT y CSIRT), centros de operaciones de
+      seguridad, proveedores de inteligencia de amenazas y operadores de infraestructuras críticas que quieran
+      validar estas técnicas sobre sus propios datos o incorporarlas a sus procesos. Las vías habituales son
+      contratos de investigación y desarrollo con la Universidad de Alcalá, cátedras de empresa, proyectos
+      conjuntos en convocatorias nacionales o europeas, y acceso a datos de intrusiones reales para la validación
+      de los modelos, siempre bajo acuerdos de confidencialidad.
+    </p>
+    <p>
+      Contacto: Enrique de la Hoz, investigador principal,
+      <a href="mailto:enrique.delahoz@uah.es?subject=APT-GRAN%3A%20colaboraci%C3%B3n">enrique.delahoz@uah.es</a>.
     </p>
   </div>
 </Base>

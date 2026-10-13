@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Base titulo="The project" lang="en">
   <header class="post-header">
@@ -76,7 +77,44 @@ import Base from '../../layouts/Base.astro';
     <h2>funding</h2>
     <p>
       Project funded by the Own Research Programme of the University of Alcalá, 2025 call for research project
-      grants. Duration: 12 months. Supported by the Isdefe-UAH Chair in ICT and Artificial Intelligence.
+      grants, reference <strong>PIUAH25/IA-058</strong>. Duration: 12 months, from December 2025 to December
+      2026. Supported by the Isdefe-UAH Chair in ICT and Artificial Intelligence.
+    </p>
+  </div>
+
+  <div class="linea" id="citar">
+    <h2>acknowledgement and how to cite</h2>
+    <p>
+      Papers, repositories, presentations and any other output derived from the project should include the
+      following acknowledgement:
+    </p>
+    <pre class="cita">This work was funded by the University of Alcalá through the APT-GRAN project (PIUAH25/IA-058), Own Research Programme, 2025 call.</pre>
+    <pre class="cita" lang="es">Este trabajo ha sido financiado por la Universidad de Alcalá a través del proyecto APT-GRAN (PIUAH25/IA-058), Programa Propio de Investigación, convocatoria 2025.</pre>
+    <p>To cite the project itself:</p>
+    <pre class="cita">de la Hoz, E., Cornejo Bueno, L. M. et al. (2025–2026). APT-GRAN: Intelligent Attribution of Advanced Persistent Threats in Cybersecurity through Neural Networks and Graph Modelling (PIUAH25/IA-058). University of Alcalá. https://gnosis-uah.github.io/apt-gran/</pre>
+    <p class="nota">
+      Software and datasets have their own citation, with DOI, on the <a href={`${base}/en/recursos`}>resources</a> page.
+    </p>
+  </div>
+
+  <div class="linea" id="transferencia">
+    <h2>technology transfer and industry contact</h2>
+    <p>
+      APT-GRAN produces results designed to fit into real environments with loose coupling: models that attribute
+      malicious activity to known groups, tools that extract techniques and indicators from threat intelligence
+      reports, and an integration model for threat sharing platforms such as MISP that adds attribution metadata
+      to shared incidents.
+    </p>
+    <p>
+      We are interested in working with incident response teams (CERTs and CSIRTs), security operations centres,
+      threat intelligence providers and critical infrastructure operators who want to validate these techniques on
+      their own data or bring them into their processes. The usual routes are research and development contracts
+      with the University of Alcalá, industry-sponsored chairs, joint projects under national or European calls,
+      and access to real intrusion data for model validation, always under non-disclosure agreements.
+    </p>
+    <p>
+      Contact: Enrique de la Hoz, principal investigator,
+      <a href="mailto:enrique.delahoz@uah.es?subject=APT-GRAN%3A%20collaboration">enrique.delahoz@uah.es</a>.
     </p>
   </div>
 </Base>
