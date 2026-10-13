@@ -7,6 +7,8 @@ const noticias = defineCollection({
     titulo: z.string(),
     fecha: z.coerce.date(),
     resumen: z.string(),
+    url: z.string().url().optional(),
+    etiqueta: z.string().default('Más información'),
   }),
 });
 

@@ -14,7 +14,7 @@ npm run build      # genera el sitio en dist/
 
 | Qué | Carpeta | Plantilla |
 |---|---|---|
-| Noticia | `src/content/noticias/` | ver `2025-arranque.md` |
+| Noticia | `src/content/noticias/` | ver `2026-10-semana-ciencia.md` (campos opcionales `url` y `etiqueta` para un enlace) |
 | Resultado | `src/content/resultados/` | `_ejemplo.md.txt` |
 | Publicación | `src/content/publicaciones/` | `_ejemplo.md.txt` |
 | Recurso (dataset, software) | `src/content/recursos/` | `_ejemplo.md.txt` |
